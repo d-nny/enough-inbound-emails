@@ -82,7 +82,7 @@ export default {
                 },
                 body: JSON.stringify({ emailPath })
               }
-            );
+            ));
             
             if (!processorResponse.ok) {
               const errorText = await processorResponse.text();
