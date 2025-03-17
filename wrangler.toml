@@ -1,0 +1,20 @@
+name = "enough-inbound-emails"
+main = "src/index.js"
+compatibility_date = "2023-07-10"
+
+[[r2_buckets]]
+binding = "EMAIL_BUCKET"
+bucket_name = "enough-mail"
+
+# Configure email processing
+[env.production]
+FORWARD_EMAILS = "true"
+EXTERNAL_EMAIL = "lildamc@gmail.com"
+
+[[services]]
+binding = "EMAIL_OUTBOUND"
+service = "enough-outbound-emails"
+
+[[services]]
+binding = "EMAIL_PROCESSOR"
+service = "enough-eml-to-db"
